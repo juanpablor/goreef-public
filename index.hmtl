@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting…</title>
+  </head>
+  <body>
+    <p>Redirecting…</p>
+
+    <noscript>
+      <p>JavaScript is required for automatic redirect.</p>
+    </noscript>
+
+    <script>
+      (function () {
+        var DEST = "https://reefcleaningcompany.com/";
+
+        // Mantener querystring + hash (UTM, etc.)
+        var suffix = (window.location.search || "") + (window.location.hash || "");
+
+        // Evitar loops raros (si alguna vez esto corre en el dominio destino)
+        try {
+          if (window.location.hostname === new URL(DEST).hostname) return;
+        } catch (e) {}
+
+        window.location.replace(DEST + suffix);
+      })();
+    </script>
+  </body>
+</html>
